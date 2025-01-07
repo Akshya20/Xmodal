@@ -33,18 +33,11 @@ function Form2({onCloseModal}) {
             return;
           }
       
-          if (!formdata.dob) {
-            alert("Invalid date of birth");
-            return;
+          const today = new Date().toISOString().split("T")[0];
+          if (!formdata.dob || formdata.dob > today) {
+               alert("Invalid date of birth");
+               return;
           }
-         const enteredDate = new Date(formdata.dob);
-         const today = new Date();
-         today.setHours(0, 0, 0, 0); 
-
-         if (enteredDate > today) {
-          alert("Invalid date of birth");
-         return;
-         }
       
           
           alert("Form submitted successfully!");
