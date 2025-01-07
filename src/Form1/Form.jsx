@@ -34,16 +34,21 @@ function Form2({onCloseModal}) {
           }
       
           if (!formdata.dob) {
-            alert("Date of Birth should not be empty");
+            alert("Invalid date of birth");
             return;
           }
       
           
           alert("Form submitted successfully!");
-          onCloseModal();
+          
     }
+    const handleOverlayClick = (e) => {
+        if (e.target.className.includes("modal")) {
+          onCloseModal(); 
+        }
+      };
     return (
-        <div className="modal">
+        <div className="modal" onClick={handleOverlayClick}>
         <div className="modal-content">
           <h2>Fill Details</h2>
           <form onSubmit={handleSubmit}>
