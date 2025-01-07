@@ -29,7 +29,7 @@ function Form2({onCloseModal}) {
 
   
      if (formdata.phone.length !== 10 || isNaN(formdata.phone)) {
-        alert("Invalid phone number. Please enter a 10-digit phone number. ");
+        alert("Invalid phone number");
         isValid = false;
      }
 
