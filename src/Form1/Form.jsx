@@ -18,6 +18,12 @@ function Form2({onCloseModal}) {
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
+
+         const selectedDate = new Date(formdata.dob);
+         if (!formdata.dob || selectedDate > new Date()) {
+            alert("Invalid date of birth"); 
+            return;
+         }
         if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
             alert("Invalid email. Please check your email address.");
             return;
@@ -33,11 +39,7 @@ function Form2({onCloseModal}) {
             return;
           }
       
-          const today = new Date().toISOString().split("T")[0];
-          if (!formdata.dob || formdata.dob > today) {
-               alert("Invalid date of birth");
-               return;
-          }
+          
       
           
           alert("Form submitted successfully!");
