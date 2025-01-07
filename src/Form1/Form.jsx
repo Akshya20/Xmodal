@@ -63,7 +63,7 @@ function Form2({onCloseModal}) {
         <div className="modal" onClick={handleOverlayClick}>
         <div className="modal-content">
           <h2>Fill Details</h2>
-          <form onSubmit={handleSubmit} noValidate>
+          <form onSubmit={handleSubmit} >
             <label>Username:</label>
             <input
               type="text"
