@@ -17,14 +17,14 @@ function Form2({onCloseModal}) {
         setformdata({...formdata,[id]:value});
     }
     const handleSubmit=(e)=>{
-        e.preventDefault();
+         e.preventDefault();
 
          const selectedDate = new Date(formdata.dob);
          if (!formdata.dob || selectedDate > new Date()) {
             alert("Invalid date of birth"); 
             return;
          }
-        if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
+         if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
             alert("Invalid email. Please check your email address.");
             return;
           }
