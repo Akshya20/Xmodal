@@ -19,29 +19,25 @@ function Form2({onCloseModal}) {
     const handleSubmit=(e)=>{
          e.preventDefault();
 
+        if (!formdata.username) {
+            alert("Please fill out this field");
+            return;
+          }
+        if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
+            alert("Invalid email. Please check your email address.");
+            return;
+          }
+        if (formdata.phone.length !== 10 || isNaN(formdata.phone)) {
+            alert("Invalid phone number. Please enter a 10-digit phone number.");
+            return;
+          }
+
          const selectedDate = new Date(formdata.dob);
          if (!formdata.dob || selectedDate > new Date()) {
             alert("Invalid date of birth"); 
             return;
          }
-         if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
-            alert("Invalid email. Please check your email address.");
-            return;
-          }
-      
-          if (formdata.phone.length !== 10 || isNaN(formdata.phone)) {
-            alert("Invalid phone number. Please enter a 10-digit phone number.");
-            return;
-          }
-      
-          if (!formdata.username) {
-            alert("Please fill out this field");
-            return;
-          }
-      
-          
-      
-          
+         
           alert("Form submitted successfully!");
           
     }
