@@ -19,26 +19,39 @@ function Form2({onCloseModal}) {
     const handleSubmit=(e)=>{
          e.preventDefault();
 
-        if (!formdata.username) {
-            alert("Please fill out this field");
-            return;
-          }
-        if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
-            alert("Invalid email. Please check your email address.");
-            return;
-          }
-        if (formdata.phone.length !== 10 || isNaN(formdata.phone)) {
-            alert("Invalid phone number. Please enter a 10-digit phone number.");
-            return;
-          }
+        let isValid = true; 
+  
+  
+  if (!formdata.username) {
+    alert("Please fill out this field for Username");
+    isValid = false; 
+  }
 
-         const selectedDate = new Date(formdata.dob);
-         if (!formdata.dob || selectedDate > new Date()) {
-            alert("Invalid date of birth"); 
-            return;
-         }
-         
-          alert("Form submitted successfully!");
+  
+  if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
+    alert("Invalid email. Please check your email address.");
+    isValid = false; 
+  }
+
+  // Validate Phone Number
+  if (formdata.phone.length !== 10 || isNaN(formdata.phone)) {
+    alert("Invalid phone number. Please enter a 10-digit phone number.");
+    isValid = false;
+  }
+
+  
+  const selectedDate = new Date(formdata.dob);
+  if (!formdata.dob) {
+    alert("Invalid date of birth");
+    isValid = false; 
+  } else if (selectedDate > new Date()) {
+    alert("Invalid date of birth");
+    isValid = false; 
+
+ 
+  if (isValid) {
+    alert("Form submitted successfully!");
+  }
           
     }
     const handleOverlayClick = (e) => {
