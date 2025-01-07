@@ -22,12 +22,6 @@ function Form2({onCloseModal}) {
          let isValid = true; 
   
   
-       if (!formdata.username) {
-        alert("Please fill out this field for Username");
-         isValid = false; 
-       }
-
-  
       if (!formdata.email.includes("@") || !formdata.email.includes(".")) {
          alert("Invalid email. Please check your email address.");
          isValid = false; 
@@ -48,6 +42,11 @@ function Form2({onCloseModal}) {
        alert("Invalid date of birth");
         isValid = false; 
       }
+
+     if (!formdata.username) {
+        alert("Please fill out this field for Username");
+         isValid = false; 
+       }
 
  
      if (isValid) {
