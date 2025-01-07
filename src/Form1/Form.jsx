@@ -29,7 +29,7 @@ function Form2({onCloseModal}) {
 
   
      if (formdata.phone.length !== 10 || isNaN(formdata.phone)) {
-        alert("Invalid phone number. Please enter a 10-digit phone number.");
+        alert("Invalid phone number. Please enter a 10-digit phone number. Invalid email. Please check your email address.");
         isValid = false;
      }
 
@@ -39,12 +39,12 @@ function Form2({onCloseModal}) {
         alert("Invalid date of birth");
         isValid = false; 
       }else if (selectedDate > new Date()) {
-       alert("Invalid date of birth");
+       alert("Invalid date of birth Invalid phone number. Please enter a 10-digit phone number.");
         isValid = false; 
       }
 
      if (!formdata.username) {
-        alert("Please fill out this field for Username");
+        alert("Please fill out this field for Username Invalid date of birth ");
          isValid = false; 
        }
 
